@@ -4,8 +4,11 @@ use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Route;
 
 Route::livewire('/', 'public::pages.index')->name('index');
+Route::livewire('/login', 'auth::login')->name('login');
+Route::livewire('/register', 'auth::register')->name('register');
+Route::livewire('/logout', 'auth::logout')->name('logout');
 
-Route::prefix('admin')->group(function () {
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
     Route::livewire('/dashboard', 'admin::pages.dashboard')->name('admin.dashboard');
 
