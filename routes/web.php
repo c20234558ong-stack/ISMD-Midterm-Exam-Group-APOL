@@ -9,6 +9,16 @@ Route::prefix('admin')->group(function () {
 
     Route::livewire('/dashboard', 'admin::pages.dashboard')->name('admin.dashboard');
 
+    //roles
+     Route::livewire('/roles', 'admin::pages.role.view-role')->name('admin.role.view');
+     Route::livewire('/roles/create', 'admin::pages.role.create-role')->name('admin.role.create');
+     Route::livewire('/roles/edit/{role}', 'admin::pages.role.edit-role')->name('admin.role.edit');
+
+    //users
+    Route::livewire('/users', 'admin::pages.user.view-user')->name('admin.user.view');
+    Route::livewire('/users/create', 'admin::pages.user.create-user')->name('admin.user.create');
+    Route::livewire('/users/edit/{user}', 'admin::pages.user.edit-user')->name('admin.user.edit');
+
 });
 
 Route::prefix('shop-owner')->group(function () {
