@@ -35,7 +35,7 @@ Route::middleware(['auth', 'role:owner'])->prefix('shop-owner')->group(function 
 
 });
 
-Route::prefix('employee')->group(function () {
+Route::middleware(['auth', 'role:employee'])->prefix('employee')->group(function () {
 
     Route::livewire('/dashboard', 'employee::pages.dashboard')->name('employee.dashboard');
 

@@ -15,6 +15,11 @@ class EmployeeMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+
+        if (! $request->user() || ! $request->user()->hasRole('employee')) {
+            abort(403, 'Unauthorized');
+        }
+
         return $next($request);
     }
 }
