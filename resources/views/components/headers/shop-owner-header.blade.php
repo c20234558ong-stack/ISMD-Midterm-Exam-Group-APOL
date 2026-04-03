@@ -46,11 +46,11 @@
             </ul>
 
             <ul class="flex flex-row items-center gap-x-3 ms-auto">
-                
+
 
                 <li
                     class="inline-flex items-center gap-1.5 relative text-gray-500 pe-3 last:pe-0 last:after:hidden after:absolute after:top-1/2 after:end-0 after:inline-block after:w-px after:h-3.5 after:bg-gray-300 after:rounded-full after:-translate-y-1/2 after:rotate-12 dark:text-neutral-200 dark:after:bg-neutral-700">
-                    
+
 
                     <div class="h-8">
                         <!-- Account Dropdown -->
@@ -140,21 +140,7 @@
                                         </svg>
                                         Profile
                                     </a>
-
-                                    <form method="POST" action="#">
-                                        @csrf
-                                        <button type="submit"
-                                            class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
-                                            <svg class="shrink-0 mt-0.5 size-4" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="m16 17 5-5-5-5" />
-                                                <path d="M21 12H9" />
-                                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-                                            </svg>
-                                            Log out
-                                        </button>
-                                    </form>
+                                    <livewire:auth::logout />
                                 </div>
                             </div>
                             <!-- End Account Dropdown -->

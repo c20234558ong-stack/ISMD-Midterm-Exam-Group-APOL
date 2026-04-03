@@ -24,13 +24,18 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
 });
 
-Route::prefix('shop-owner')->group(function () {
+Route::middleware(['auth', 'role:owner'])->prefix('shop-owner')->group(function () {
 
     Route::livewire('/dashboard', 'shop-owner::pages.dashboard')->name('shop-owner.dashboard');
 
+    //employee
+    Route::livewire('/employee', 'shop-owner::pages.employee.view-employee')->name('shop-owner.employee.view');
+    Route::livewire('/employee/create', 'shop-owner::pages.employee.create-employee')->name('shop-owner.employee.create');
+    Route::livewire('/employee/edit/{employee}', 'shop-owner::pages.employee.edit-employee')->name('shop-owner.employee.edit');
+
 });
 
-Route::prefix('employee')->group(function () {
+Route::middleware(['auth', 'role:employee'])->prefix('employee')->group(function () {
 
     Route::livewire('/dashboard', 'employee::pages.dashboard')->name('employee.dashboard');
 
