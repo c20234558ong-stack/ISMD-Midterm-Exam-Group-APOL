@@ -41,7 +41,7 @@
                         <div class="grow">
                             <div class="flex flex-col md:flex-row md:justify-end md:items-center gap-0.5 md:gap-1">
                                 <a class="p-2 flex items-center text-sm bg-gray-100 dark:bg-neutral-700 text-gray-800 dark:text-neutral-200 hover:bg-gray-100 dark:hover:bg-neutral-700 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:focus:bg-neutral-700"
-                                    href="#" aria-current="page">
+                                    href="/" aria-current="page">
                                     <svg class="shrink-0 size-4 me-3 md:me-2 block md:hidden"
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -187,7 +187,7 @@
                         <!-- Button Group -->
                         <div class="flex flex-wrap items-center gap-x-1.5">
                             <a class="py-[7px] px-2.5 inline-flex items-center font-medium text-sm rounded-lg bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 text-gray-800 dark:text-white shadow-2xs hover:bg-gray-50 dark:hover:bg-neutral-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-50 dark:focus:bg-neutral-700"
-                                href="#">
+                                href="/login">
                                 Sign in
                             </a>
                             <a class="py-2 px-2.5 inline-flex items-center font-medium text-sm rounded-lg bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 dark:hover:bg-blue-600 focus:outline-hidden focus:bg-blue-700 dark:focus:bg-blue-600 disabled:opacity-50 disabled:pointer-events-none"

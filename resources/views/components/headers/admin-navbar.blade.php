@@ -66,7 +66,7 @@
                         <li>
                             <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 dark:text-neutral-200 "
                                 wire:current="dark:bg-neutral-200 dark:focus:bg-neutral-200 bg-neutral-200"
-                                href="#">
+                                href="/admin/dashboard">
                                 Dashboard
                             </a>
                         </li>
