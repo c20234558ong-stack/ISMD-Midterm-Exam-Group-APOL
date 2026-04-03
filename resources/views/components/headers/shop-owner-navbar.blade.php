@@ -65,8 +65,8 @@
                     <ul class="flex flex-col gap-y-1">
                         <li>
                             <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 dark:text-neutral-200 "
-                                wire:current="dark:bg-neutral-800 dark:focus:bg-neutral-800 bg-neutral-800"
-                                href="#">
+                                wire:current="dark:bg-neutral-200 dark:focus:bg-neutral-200 bg-neutral-200"
+                                href="/shop-owner/dashboard">
                                 Dashboard
                             </a>
                         </li>
@@ -84,21 +84,14 @@
                     <ul class="flex flex-col gap-y-1">
                         <li>
                             <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 dark:text-neutral-200 "
-                                href="#">
+                                href="/shop-owner/employee">
                                 View Employees
                             </a>
                         </li>
                     </ul>
                     <!-- End List -->
                 </div>
-
-                <div
-                    class="pt-3 mt-3 flex flex-col border-t border-gray-200 first:border-t-0 first:pt-0 first:mt-0 dark:border-neutral-700">
-                    <span class="block ps-2.5 mb-2 font-medium text-xs uppercase text-gray-500 dark:text-neutral-500">
-                        Roles & Permissions
-                    </span>
-                <div
-                    class="pt-3 mt-3 lg:hidden flex flex-col border-t border-gray-200 first:border-t-0 first:pt-0 first:mt-0 dark:border-neutral-700">
+                <div class="pt-3 mt-3 lg:hidden flex flex-col border-t border-gray-200 first:border-t-0 first:pt-0 first:mt-0 dark:border-neutral-700">
                     <span class="block ps-2.5 mb-2 font-medium text-xs uppercase text-gray-500 dark:text-neutral-500">
                         Others
                     </span>
@@ -172,19 +165,19 @@
     <!-- End Sidebar -->
     <!-- ========== END MAIN SIDEBAR ========== -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () 
+        document.addEventListener("DOMContentLoaded", function ()
         {
             const searchInput = document.querySelector('#hs-pro-sidebar input[type="text"]');
             const links = document.querySelectorAll('#hs-pro-sidebar nav a');
 
-            searchInput.addEventListener("input", function () 
+            searchInput.addEventListener("input", function ()
             {
                 const query = this.value.toLowerCase().trim();
 
-                links.forEach(link => 
+                links.forEach(link =>
                 {
                     const text = link.textContent.toLowerCase();
-                    if (text.includes(query)) 
+                    if (text.includes(query))
                     {
                         link.parentElement.style.display = "";
                     } else {
