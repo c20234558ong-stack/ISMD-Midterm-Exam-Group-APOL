@@ -65,7 +65,7 @@
                     <ul class="flex flex-col gap-y-1">
                         <li>
                             <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 dark:text-neutral-200 "
-                                wire:current="dark:bg-neutral-800 dark:focus:bg-neutral-800 bg-neutral-800"
+                                wire:current="dark:bg-neutral-200 dark:focus:bg-neutral-200 bg-neutral-200"
                                 href="#">
                                 Dashboard
                             </a>
@@ -114,9 +114,18 @@
                     <ul class="flex flex-col gap-y-1">
                         <li>
                             <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-800 rounded-lg dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 "
-                                wire:current="dark:bg-neutral-800 dark:focus:bg-neutral-800 bg-neutral-800"
-                                href="#">
-                                Roles   
+                                wire:current="dark:bg-neutral-200 dark:focus:bg-neutral-200 bg-neutral-200"
+                                href="/admin/roles">
+                                Roles
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="flex flex-col gap-y-1">
+                        <li>
+                            <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-800 rounded-lg dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 "
+                                wire:current="dark:bg-neutral-200 dark:focus:bg-neutral-200 bg-neutral-200"
+                                href="/admin/users">
+                                User
                             </a>
                         </li>
                     </ul>
@@ -198,19 +207,19 @@
     <!-- End Sidebar -->
     <!-- ========== END MAIN SIDEBAR ========== -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () 
+        document.addEventListener("DOMContentLoaded", function ()
         {
             const searchInput = document.querySelector('#hs-pro-sidebar input[type="text"]');
             const links = document.querySelectorAll('#hs-pro-sidebar nav a');
 
-            searchInput.addEventListener("input", function () 
+            searchInput.addEventListener("input", function ()
             {
                 const query = this.value.toLowerCase().trim();
 
-                links.forEach(link => 
+                links.forEach(link =>
                 {
                     const text = link.textContent.toLowerCase();
-                    if (text.includes(query)) 
+                    if (text.includes(query))
                     {
                         link.parentElement.style.display = "";
                     } else {
