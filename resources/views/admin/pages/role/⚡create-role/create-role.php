@@ -67,5 +67,7 @@ new #[Layout('layouts.app-admin')] class extends Component
         $this->reset([
             'name', 'selectedPermissions'
         ]);
+
+        return redirect()->route('admin.role.view');
     }
 };

@@ -10,7 +10,7 @@ Route::livewire('/login', 'auth::login')->name('login');
 Route::livewire('/register', 'auth::register')->name('register');
 Route::livewire('/logout', 'auth::logout')->name('logout');
 
-Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
+Route::prefix('admin')->group(function () {
 
     Route::livewire('/dashboard', 'admin::pages.dashboard')->name('admin.dashboard');
 
@@ -21,6 +21,8 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
     //users
     Route::livewire('/users', 'admin::pages.user.view-user')->name('admin.user.view');
+    Route::livewire('/users/shop-owners', 'admin::pages.user.view-shop-owner')->name('admin.user.shop-owner');
+    Route::livewire('/users/employees', 'admin::pages.user.view-employee')->name('admin.user.employee');
     Route::livewire('/users/create', 'admin::pages.user.create-user')->name('admin.user.create');
     Route::livewire('/users/edit/{user}', 'admin::pages.user.edit-user')->name('admin.user.edit');
 
