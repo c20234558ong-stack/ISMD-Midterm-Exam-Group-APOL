@@ -1,4 +1,3 @@
-<div>
 <!-- ========== HEADER ========== -->
 <header
     class="fixed top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-48 lg:z-61 w-full bg-zinc-100 text-sm py-2.5 dark:bg-neutral-900">
@@ -153,5 +152,4 @@
         </div>
     </nav>
 </header>
-<!-- ========== END HEADER ========== -->
-</div>
+<!-- ========== END HEADER ========== -->   

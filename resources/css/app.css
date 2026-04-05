@@ -24,6 +24,26 @@
     cursor: pointer;
   }
 }
+#text{
+  color:white;
+}
+#btn{
+  color: white;
+}
+#btn:hover{
+  background-color: rgb(27, 136, 17);
+  color: white;
+}
+
+/* No border for buttons */
+#no-border{
+  border: none;
+}
+#no-border:hover{
+  background-color: rgb(27, 136, 17);
+  color: white;
+}
+
 
 /* Defaults hover styles on all devices */
 @custom-variant hover (&:hover);

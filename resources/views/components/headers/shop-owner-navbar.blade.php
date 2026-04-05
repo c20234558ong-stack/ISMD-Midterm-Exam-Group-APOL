@@ -8,11 +8,11 @@
         w-60
         hidden
         fixed inset-y-0 z-60 start-0
-        bg-zinc-100
+        bg-gray-700
         lg:block lg:-translate-x-full lg:end-auto lg:bottom-0
-        dark:bg-neutral-900"
+        dark:bg-black"
         role="dialog" tabindex="-1" aria-label="Sidebar">
-        <div class="lg:pt-13 relative flex flex-col h-full max-h-full">
+        <div id="text" class="lg:pt-13 relative flex flex-col h-full max-h-full">
             <!-- Body -->
             <nav
                 class="p-3 size-full flex flex-col overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-200 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
@@ -57,14 +57,14 @@
 
                 <div
                     class="pt-3 mt-3 flex flex-col border-t border-gray-200 first:border-t-0 first:pt-0 first:mt-0 dark:border-neutral-700">
-                    <span class="block ps-2.5 mb-2 font-medium text-xs uppercase text-gray-500 dark:text-neutral-500">
+                    <span class="text-green-700 block ps-2.5 mb-2 font-medium text-xs uppercase">
                         Home
                     </span>
 
                     <!-- List -->
                     <ul class="flex flex-col gap-y-1">
                         <li>
-                            <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 dark:text-neutral-200 "
+                            <a id="no-border" class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-800 rounded-lg focus:bg-gray-200 dark:focus:bg-neutral-800 dark:text-neutral-200"
                                 wire:current="dark:bg-neutral-200 dark:focus:bg-neutral-200 bg-neutral-200"
                                 href="/shop-owner/dashboard">
                                 Dashboard
@@ -75,15 +75,15 @@
                 </div>
 
                 <div
-                    class="pt-3 mt-3 flex flex-col border-t border-gray-200 first:border-t-0 first:pt-0 first:mt-0 dark:border-neutral-700">
-                    <span class="block ps-2.5 mb-2 font-medium text-xs uppercase text-gray-500 dark:text-neutral-500">
+                    class="pt-3 mt-3 flex flex-col border-t first:border-t-0 first:pt-0 first:mt-0">
+                    <span class="block ps-2.5 mb-2 font-medium text-xs uppercase text-green-700">
                         Employee Management
                     </span>
 
                     <!-- List -->
                     <ul class="flex flex-col gap-y-1">
                         <li>
-                            <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 dark:text-neutral-200 "
+                            <a id="no-border" class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-neutral-200 rounded-lg hover:bg-gray-200 focus:outline-hidden"
                                 href="/shop-owner/employee">
                                 View Employees
                             </a>
@@ -91,75 +91,8 @@
                     </ul>
                     <!-- End List -->
                 </div>
-                <div class="pt-3 mt-3 lg:hidden flex flex-col border-t border-gray-200 first:border-t-0 first:pt-0 first:mt-0 dark:border-neutral-700">
-                    <span class="block ps-2.5 mb-2 font-medium text-xs uppercase text-gray-500 dark:text-neutral-500">
-                        Others
-                    </span>
-
-                    <!-- List -->
-                    <ul class="flex flex-col gap-y-1">
-                        <li>
-                            <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 dark:text-neutral-200"
-                                href="#">
-                                Docs
-                            </a>
-                        </li>
-                        <li>
-                            <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 dark:text-neutral-200"
-                                href="#">
-                                API
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- End List -->
-                </div>
             </nav>
             <!-- End Body -->
-
-            <!-- Footer -->
-            <footer class="mt-auto p-3 flex flex-col">
-                <!-- List -->
-                <ul class="flex flex-col gap-y-1">
-                    <li>
-                        <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 dark:text-neutral-200"
-                            href="#">
-                            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
-                            </svg>
-                            What's new?
-                        </a>
-                    </li>
-                    <li>
-                        <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 dark:text-neutral-200"
-                            href="#">
-                            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-                            </svg>
-                            Help & support
-                        </a>
-                    </li>
-                    <li class="lg:hidden">
-                        <a class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 dark:text-neutral-200"
-                            href="#">
-                            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 7v14" />
-                                <path
-                                    d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
-                            </svg>
-                            Knowledge Base
-                        </a>
-                    </li>
-                </ul>
-                <!-- End List -->
-            </footer>
-            <!-- End Footer -->
         </div>
     </div>
     <!-- End Sidebar -->

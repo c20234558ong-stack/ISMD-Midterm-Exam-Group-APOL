@@ -1,68 +1,68 @@
-
 <div>
-    <div class="dark:bg-neutral-800 bg-card border dark:border-b-gray-600 border-card-line rounded-xl shadow-2xs w-xl m-12">
+    <div class="rounded-xl shadow-2xs">
         <!-- Sign In -->
-        <div class="p-4 sm:p-7 lg:p-12">
+        <div class="p-4 sm:p-7">
             <div class="text-center">
-                <h3 class="block text-2xl font-bold dark:text-white text-foreground">Sign in</h3>
-                <p class="mt-2 text-sm dark:text-white text-muted-foreground-2">
-                    Don't have an account yet?
-                    <a class="text-blue-600 decoration-2 hover:underline font-medium" href="#">
-                        Sign up here
-                    </a>
+                <h3 id="hs-modal-signin-label" class="block text-2xl font-bold text-neutral-200">Sign
+                    in</h3> 
                 </p>
             </div>
 
             <div class="mt-5">
-                <!-- Social login button -->
-                <a class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg bg-layer border border-layer-line text-layer-foreground shadow-2xs hover:bg-layer-hover"
-                    href="#!">
-                    <!-- Google SVG -->
-                    Sign in with Google
-                </a>
-
-                <div class="py-3 flex items-center text-xs text-muted-foreground uppercase before:flex-1 before:border-t before:border-line-2 before:me-6 after:flex-1 after:border-t after:border-line-2 after:ms-6 dark:text-neutral-500">
-                    Or
-                </div>
-
-                <!-- Livewire Form -->
-                <form wire:submit.prevent="login">
+                <!-- Form -->
+                <form>
                     <div class="grid gap-y-4">
-                        <!-- Email -->
+                        <!-- Form Group -->
                         <div>
-                            <label for="email" class="block text-sm mb-2 dark:text-neutral-500 text-foreground">Email address</label>
-                            <input type="email" id="email" wire:model.defer="email"
-                                class="py-2.5 sm:py-3 px-4 block w-full border border-layer-line bg-layer rounded-lg sm:text-sm text-foreground placeholder:text-muted-foreground-1 focus:border-primary-focus focus:ring focus:ring-primary-focus"
-                                required>
-                            @error('email') <span class="text-xs text-red-600 mt-2">{{ $message }}</span> @enderror
+                            <label for="email" class="block text-sm mb-2 text-neutral-200">Email
+                                address</label>
+                            <div class="relative">
+                                <input type="email" id="email" name="email"
+                                    class="py-2.5 sm:py-3 px-4 block w-full bg-white dark:bg-neutral-800 border-gray-200 dark:border-neutral-700 rounded-lg sm:text-sm text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                    required aria-describedby="email-error">
+                                <div class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
+                                    <svg class="size-5 text-red-500" width="16" height="16" fill="currentColor"
+                                        viewBox="0 0 16 16" aria-hidden="true">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="hidden text-xs text-red-600 mt-2" id="email-error">Please include a valid email
+                                address so we can get back to you</p>
                         </div>
+                        <!-- End Form Group -->
 
-                        <!-- Password -->
+                        <!-- Form Group -->
                         <div>
-                            <label for="password" class="block text-sm mb-2 dark:text-neutral-500 text-foreground">Password</label>
-                            <input type="password" id="password" wire:model.defer="password"
-                                class="py-2.5 sm:py-3 px-4 block w-full border border-layer-line bg-layer rounded-lg sm:text-sm text-foreground placeholder:text-muted-foreground-1 focus:border-primary-focus focus:ring focus:ring-primary-focus"
-                                required>
-                            @error('password') <span class="text-xs text-red-600 mt-2">{{ $message }}</span> @enderror
+                            <div class="flex flex-wrap items-center gap-2">
+                                <label for="password"
+                                    class="block text-sm mb-2 text-neutral-200">Password</label>
+                            </div>
+                            <div class="relative">
+                                <input type="password" id="password" name="password"
+                                    class="py-2.5 sm:py-3 px-4 block w-full bg-white dark:bg-neutral-800 border-gray-200 dark:border-neutral-700 rounded-lg sm:text-sm text-neutral-200 placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-blue-700 dark:focus:border-blue-600 focus:ring-blue-700 dark:focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                                    required aria-describedby="password-error">
+                                <div class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
+                                    <svg class="size-5 text-red-500" width="16" height="16" fill="currentColor"
+                                        viewBox="0 0 16 16" aria-hidden="true">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="hidden text-xs text-red-600 mt-2" id="password-error">8+ characters required</p>
                         </div>
+                        <!-- End Form Group -->
 
-                        <!-- Remember Me -->
-                        <div class="flex items-center">
-                            <input id="remember" type="checkbox" wire:model="remember"
-                                class="shrink-0 size-4 border-line-3 rounded-sm text-primary focus:ring-0">
-                            <label for="remember" class="ms-3 text-sm text-foreground">Remember me</label>
-                        </div>
-
-                        <!-- Submit -->
                         <button type="submit"
-                            class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg bg-layer border border-layer-line text-layer-foreground shadow-2xs hover:bg-layer-hover focus:bg-layer-focus">
-                            Sign in
-                        </button>
+                            class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg bg-blue-600 dark:bg-blue-500 border border-transparent text-white hover:bg-blue-700 dark:hover:bg-blue-600 focus:outline-hidden focus:bg-blue-700 dark:focus:bg-blue-600 disabled:opacity-50 disabled:pointer-events-none">Sign
+                            in</button>
                     </div>
                 </form>
+                <!-- End Form -->
             </div>
         </div>
         <!-- End Sign In -->
     </div>
-
 </div>

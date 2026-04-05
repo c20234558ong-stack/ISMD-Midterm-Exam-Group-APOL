@@ -17,6 +17,6 @@ new class extends Component
         request()->session()->forget('url.intended');
 
         // Redirect to login page
-        return redirect()->route('login');
+        return redirect()->route('index');
     }
 };
