@@ -3,8 +3,7 @@
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <!-- Card -->
         <div class="flex flex-col rounded-xl border border-green-700 p-4 sm:p-6 lg:p-8 bg-gray-700 dark:bg-black shadow-2xs">
-            <div
-                class="overflow-x-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-md bg-gray-700 dark:bg-black">
+            <div class="overflow-x-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-md bg-gray-700 dark:bg-black">
                 <div class="min-w-full inline-block align-middle">
                     <div
                         class="rounded-xl shadow-2xs overflow-hidden">

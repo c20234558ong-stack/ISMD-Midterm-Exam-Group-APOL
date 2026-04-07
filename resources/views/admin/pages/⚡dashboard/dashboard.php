@@ -16,11 +16,7 @@ new #[Layout('layouts.app-admin')] class extends Component
     {
         $this->totalUsers = User::count();
         $this->totalRoles = Role::count();
-        $this->totalOwners = User::whereHas('roles', function ($query) {
-            $query->where('name', 'shop-owner');
-        })->count();
-        $this->totalEmployees = User::whereHas('roles', function ($query) {
-            $query->where('name', 'employee');
-        })->count();
+        $this->totalOwners = User::role('shop owner')->count();
+        $this->totalEmployees = User::role('employee')->count();
     }
 };

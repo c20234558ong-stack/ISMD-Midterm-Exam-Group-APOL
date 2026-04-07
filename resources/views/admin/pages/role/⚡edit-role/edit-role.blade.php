@@ -68,7 +68,7 @@
 
           <!-- Update Button -->
           <div class="mt-6 grid">
-            <button type="submit"
+            <button type="submit" id="no-border"
               class="w-50 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-700 text-white hover:bg-green-600 focus:outline-hidden focus:bg-green-600">
               Update
             </button>

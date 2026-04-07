@@ -1,44 +1,94 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Spatie\Permission\Models\Role;
 
 new #[Layout('layouts.app-admin')] class extends Component
 {
-    public $user;
-    public $name;
-    public $email;
-    public $selectedRoles = [];
+    public User $user;
+    public string $name = '';
+    public string $email = '';
+    public string $password = '';
+    public string $password_confirmation = '';
+    public ?string $selectedRole = null; // allow null values
+
+    protected function rules()
+    {
+        return [
+            'name' => 'required|string|min:3|max:255',
+            'email' => [
+                'required',
+                'email:rfc,dns',
+                'unique:users,email,' . $this->user->id,
+                function ($attribute, $value, $fail) {
+                    if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+                        $fail('The email address is invalid.');
+                    }
+                    $domain = substr(strrchr($value, "@"), 1);
+                    if (!checkdnsrr($domain, "MX")) {
+                        $fail('The email is not valid.');
+                    }
+                },
+            ],
+            'password' => 'nullable|string|min:6|confirmed',
+            'selectedRole' => 'exists:roles,name',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'password.required' => 'The password is required.',
+            'password.confirmed' => 'Confirmation password does not match the password.',
+            'email.unique' => 'The email address is already registered.',
+            'email.required' => 'The email address is required.',
+        ];
+    }
 
     public function mount(User $user)
     {
         $this->user = $user;
         $this->name = $user->name;
         $this->email = $user->email;
-        $this->selectedRoles = $user->roles->pluck('name')->toArray();
+        $this->selectedRole = $user->roles->pluck('name')->first(); 
     }
 
-    protected function rules()
+    public function update()
     {
-        return [
-            'name' => 'required|string|min:3',
-            'email' => 'required|email|unique:users,email,' . $this->user->id,
-            'selectedRoles' => 'array',
-        ];
-    }
+        $validated = $this->validate();
 
-    public function save()
-    {
-        $this->validate();
+        $validated['name'] = $this->sanitizeData($validated['name']);
+        $validated['email'] = $this->sanitizeData($validated['email']);
 
         $this->user->update([
-            'name' => $this->name,
-            'email' => $this->email,
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => $validated['password'] 
+                ? Hash::make($validated['password']) 
+                : $this->user->password,
         ]);
 
-        $this->user->syncRoles($this->selectedRoles);
+        $this->user->syncRoles($this->selectedRole);
 
-        session()->flash('success', 'User updated successfully!');
+        session()->flash('success', 'User updated successfully.');
+        return redirect()->route('admin.user.view');
+    }
+
+    protected function sanitizeData($data)
+    {
+        return is_string($data)
+            ? Str::of($data)->stripTags()->trim()->toString()
+            : $data;
+    }
+
+    #[Computed()]
+    public function roles()
+    {
+        return Role::select('id', 'name')->get();
     }
 };
