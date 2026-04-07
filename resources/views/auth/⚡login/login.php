@@ -49,6 +49,8 @@ new class extends Component
         )) {
             request()->session()->regenerate();
 
+            $user = Auth::user();
+
             if ($user->hasRole('admin')) {
                 return redirect()->route('admin.dashboard');
             }
@@ -59,6 +61,10 @@ new class extends Component
 
             if ($user->hasRole('employee')) {
                 return redirect()->route('employee.dashboard');
+            }
+            
+            if ($user->roles->isEmpty()) {
+            abort(403, 'Unauthorized: Not Found.');
             }
 
             return redirect()->route('login');

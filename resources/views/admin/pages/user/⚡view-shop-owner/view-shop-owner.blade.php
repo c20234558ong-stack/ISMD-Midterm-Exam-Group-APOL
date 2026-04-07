@@ -17,6 +17,7 @@
                                 <p class="text-sm text-neutral-200">
                                     Manage all Owners
                                 </p>
+                                @can('deleteAny', App\Models\User::class)
                                 <!-- Only shows if the checkbox in thead or td is clicked -->
                                 @if(!empty($selectedUsers))
                                     <div class="py-2">
@@ -33,6 +34,7 @@
                                         </button>
                                     </div>
                                 @endif
+                                @endcan
                             </div>
 
                             <div>
@@ -42,6 +44,7 @@
                                         View all
                                     </a>
 
+                                    @can('create', App\Models\User::class)
                                     <a id="no-border" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                                         href="{{ route('admin.user.create') }}">
                                         <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -52,6 +55,7 @@
                                         </svg>
                                         Add User
                                     </a>
+                                    @endcan
                                 </div>
                             </div>
                         </div>
@@ -121,10 +125,13 @@
                                             </span>
                                         </td>
                                         <td class="px-2 sm:px-6 py-1.5 text-start">
+                                            @can('update', $user)
                                             <a href="{{ route('admin.user.edit', $user->id) }}"
                                             class="text-neutral-200 hover:underline">
                                                 Edit
                                             </a>
+                                            @endcan
+
                                         </td>
                                     </tr>
                                 @empty

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class EmployeeMiddleware
@@ -15,6 +16,9 @@ class EmployeeMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if (!Auth::check()) { 
+            return redirect()->route('login');
+        }
 
         if (! $request->user() || ! $request->user()->hasRole('employee')) {
             abort(403, 'Unauthorized');

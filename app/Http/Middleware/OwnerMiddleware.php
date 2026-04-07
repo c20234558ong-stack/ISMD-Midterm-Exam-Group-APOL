@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class OwnerMiddleware
@@ -15,10 +16,13 @@ class OwnerMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-
-     if (! $request->user() || ! $request->user()->hasRole('owner')) {
-            abort(403, 'Unauthorized');
-        }
+        if (!Auth::check()) { 
+                return redirect()->route('login');
+            }
+            
+        if (! $request->user() || ! $request->user()->hasRole('owner')) {
+                abort(403, 'Unauthorized');
+            }
 
         return $next($request);
     }

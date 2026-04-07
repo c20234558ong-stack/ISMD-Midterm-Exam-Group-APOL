@@ -25,6 +25,7 @@
                                         href="#">
                                         View all
                                     </a>
+                                    @can('create', App\Models\User::class)
                                     <a id="no-border" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                                         href="{{ route('shop-owner.employee.create') }}">
                                         <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -35,6 +36,7 @@
                                         </svg>
                                         Add Employee
                                     </a>
+                                    @endcan
                                 </div>
                             </div>
                         </div>

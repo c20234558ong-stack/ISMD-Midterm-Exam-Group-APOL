@@ -1,5 +1,5 @@
 <!-- ========== FOOTER ========== -->
-<footer class="mt-auto w-full max-w-[85rem] bg-gray-700 dark:bg-black py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+<footer class="mt-full w-full bg-gray-700 dark:bg-black py-10 px-4 sm:px-6 lg:px-8 ">
   <!-- Grid -->
   <div class="text-center" id="text">
 
