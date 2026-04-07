@@ -9,7 +9,7 @@
                         class="rounded-xl shadow-2xs overflow-hidden">
                         <!-- Header -->
                         <div
-                            class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700">
+                            class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center">
                             <div>
                                 <h2 class="text-xl font-semibold text-neutral-200 ">
                                     All Employees
@@ -58,7 +58,7 @@
                         <!-- End Header -->
 
                         <!-- Table -->
-                        <table class="min-w-full divide-y text-xs sm:text-sm">
+                        <table class="min-w-full text-xs sm:text-sm">
                             <thead class="bg-gray-800 dark:bg-neutral-900">
                                 <tr>
                                     <th class="ps-2 sm:ps-6 py-3">
@@ -139,7 +139,7 @@
                         <!-- End Table -->
 
                         <!-- Footer -->
-                        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-neutral-700">
+                        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-600">
                             <div>
                                 <p class="text-sm text-neutral-200">
                                     <span class="font-semibold text-neutral-200">

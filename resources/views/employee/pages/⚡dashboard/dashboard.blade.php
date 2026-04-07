@@ -3,7 +3,7 @@
         <!-- Header -->
         <header class="mb-6">
             <h1 class="text-3xl font-bold text-green-600">Employee Dashboard</h1>
-            <p class="text-neutral-400 italic">“Great service starts with great organization.”</p>
+            <p class="text-neutral-200 italic">“Great service starts with great organization.”</p>
         </header>
 
         <!-- Grid Layout -->

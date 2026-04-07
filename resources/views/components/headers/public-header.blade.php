@@ -1,5 +1,5 @@
 <header
-  class="flex flex-wrap md:flex-nowrap z-50 w-full bg-gray-700 dark:bg-black border-b">
+  class="flex flex-wrap md:flex-nowrap z-50 w-full bg-gray-700 dark:bg-black">
   <nav
     class="relative max-w-[85rem] w-full mx-auto flex flex-wrap md:flex-nowrap md:items-center md:justify-between md:gap-3 py-2 px-4 sm:px-6 lg:px-8">
     

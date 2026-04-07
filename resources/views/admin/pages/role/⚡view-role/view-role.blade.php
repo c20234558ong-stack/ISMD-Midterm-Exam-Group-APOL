@@ -9,7 +9,7 @@
                         class="rounded-xl shadow-2xs overflow-hidden">
                         <!-- Header -->
                         <div
-                            class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700">
+                            class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center">
                             <div>
                                 <h2 class="text-xl font-semibold text-neutral-200 ">
                                     Role & Permissions
@@ -37,7 +37,7 @@
 
                             <div>
                                 <div class="inline-flex gap-x-2">
-                                    <a id="no-border" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-gray-600 text-neutral-200 shadow-2xs hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-50 dark:border-neutral-700 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                                    <a id="no-border" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg bg-gray-600 text-neutral-200 shadow-2xs hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-50 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
                                         href="#">
                                         View all
                                     </a>
@@ -58,7 +58,7 @@
                         <!-- End Header -->
 
                         <!-- Table -->
-                        <table class="min-w-full divide-y text-xs sm:text-sm">
+                        <table class="min-w-full text-xs sm:text-sm">
                             <thead class="bg-gray-800 dark:bg-neutral-900">
                                 <tr>
                                     <th class="ps-2 sm:ps-6 py-3">
@@ -131,7 +131,7 @@
                         <!-- End Table -->
 
                         <!-- Footer -->
-                        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-neutral-700">
+                        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-600">
                             <div>
                                 <p class="text-sm text-neutral-200">
                                     <span class="font-semibold text-neutral-200">

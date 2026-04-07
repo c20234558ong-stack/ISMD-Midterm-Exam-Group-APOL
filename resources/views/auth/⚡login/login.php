@@ -14,31 +14,60 @@ new class extends Component
         'password' => 'required|string|min:6',
     ];
 
-    public function login()
-{
-    $this->validate();
-
-    if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
-        session()->regenerate();
-
-        $user = Auth::user();
-
-        if ($user->hasRole('admin')) {
-            return redirect()->route('admin.dashboard');
-        }
-
-        if ($user->hasRole('owner')) {
-            return redirect()->route('shop-owner.dashboard');
-        }
-
-        if ($user->hasRole('employee')) {
-            return redirect()->route('employee.dashboard');
-        }
-
-        // fallback
-        return redirect()->route('login');
+    public function messages()
+    {
+        return [
+            'email.required' => 'Email is required.',
+            'email.email' => 'Please enter a valid email address.',
+            'password.required' => 'Password is required.',
+            'password.min' => 'Password must be at least 6 characters.',
+        ];
     }
 
-    $this->addError('email', 'Invalid credentials.');
-}
+    public function login()
+    {
+        $this->validate();
+
+        // Check if user exists first
+        $user = \App\Models\User::where('email', $this->email)->first();
+
+        if (! $user) {
+            $this->addError('email', 'This email is not registered.');
+            return;
+        }
+
+        // Now check password
+        if (! \Illuminate\Support\Facades\Hash::check($this->password, $user->password)) {
+            $this->addError('password', 'Wrong password.');
+            return;
+        }
+
+        // Attempt login
+        if (Auth::attempt(
+            ['email' => $this->email, 'password' => $this->password],
+            $this->remember
+        )) {
+            request()->session()->regenerate();
+
+            if ($user->hasRole('admin')) {
+                return redirect()->route('admin.dashboard');
+            }
+
+            if ($user->hasRole('shop owner')) {
+                return redirect()->route('shop-owner.dashboard');
+            }
+
+            if ($user->hasRole('employee')) {
+                return redirect()->route('employee.dashboard');
+            }
+
+            return redirect()->route('login');
+        }
+
+        $this->addError('auth', 'Login failed.');
+        
+        return $this->reset('email', 'password');
+    }
+
 };
+

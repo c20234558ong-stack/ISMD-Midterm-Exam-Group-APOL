@@ -1,42 +1,170 @@
-
 <div>
-  <div class="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-xl shadow overflow-hidden">
-  <!-- Card Header -->
-  <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-neutral-700">
-    <h3 class="text-lg font-semibold text-gray-800 dark:text-neutral-200">Employees</h3>
-    <a href="{{ route('shop-owner.employee.create') }}"
-       class="inline-flex items-center px-3 py-1 text-sm font-medium rounded-md bg-green-600 text-white hover:bg-green-700">
-      + Add Employee
-    </a>
-  </div>
+    <!-- Table Section -->
+    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+        <!-- Card -->
+        <div class="flex flex-col rounded-xl border border-green-700 p-4 sm:p-6 lg:p-8 bg-gray-700 dark:bg-black shadow-2xs">
+            <div class="overflow-x-auto [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-md bg-gray-700 dark:bg-black">
+                <div class="min-w-full inline-block align-middle">
+                    <div
+                        class="rounded-xl shadow-2xs overflow-hidden">
+                        <!-- Header -->
+                        <div
+                            class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-gray-200 dark:border-neutral-700">
+                            <div>
+                                <h2 class="text-xl font-semibold text-neutral-200 ">
+                                    All Employees
+                                </h2>
+                                <p class="text-sm text-neutral-200">
+                                    Manage all Employees
+                                </p>
+                            </div>
 
-  <!-- Table -->
-  <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
-    <thead class="bg-gray-50 dark:bg-neutral-800">
-      <tr>
-        <th class="px-6 py-3 text-start text-xs font-semibold uppercase text-gray-800 dark:text-neutral-200">Name</th>
-        <th class="px-6 py-3 text-start text-xs font-semibold uppercase text-gray-800 dark:text-neutral-200">Role</th>
-        <th class="px-6 py-3 text-end text-xs font-semibold uppercase text-gray-800 dark:text-neutral-200">Actions</th>
-      </tr>
-    </thead>
-    <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
-      @foreach($this->employees as $employee)
-        <tr class="hover:bg-gray-50 dark:hover:bg-neutral-700">
-          <td class="px-6 py-2 text-sm text-gray-800 dark:text-neutral-200">{{ $employee->name }}</td>
-          <td class="px-6 py-2 text-sm text-gray-500 dark:text-neutral-400">
-            {{ $employee->roles->pluck('name')->implode(', ') }}
-          </td>
-          <td class="px-6 py-2 text-end">
-            <a href="{{ route('shop-owner.employee.edit', $employee->id) }}"
-               class="inline-flex items-center px-3 py-1 text-sm font-medium rounded-md bg-blue-600 text-white hover:bg-blue-700">
-              Edit
-            </a>
-          </td>
-        </tr>
-      @endforeach
-    </tbody>
-  </table>
-</div>
+                            <div>
+                                <div class="inline-flex gap-x-2">
+                                    <a id="no-border" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-gray-600 text-neutral-200 shadow-2xs hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-50 dark:border-neutral-700 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                                        href="#">
+                                        View all
+                                    </a>
+                                    <a id="no-border" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                                        href="{{ route('shop-owner.employee.create') }}">
+                                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M5 12h14" />
+                                            <path d="M12 5v14" />
+                                        </svg>
+                                        Add Employee
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Header -->
 
-{{-- Live as if you were to die tomorrow. Learn as if you were to live forever. - Mahatma Gandhi --}}
+                        <!-- Table -->
+                        <table class="min-w-full text-xs sm:text-sm">
+                            <thead class="bg-gray-800 dark:bg-neutral-900">
+                                <tr>
+                                    <th class="ps-2 sm:ps-6 py-3 text-start font-semibold uppercase text-green-700">
+                                        ID
+                                    </th>
+                                    <th class="ps-2 sm:ps-6 py-3 text-start font-semibold uppercase text-green-700">
+                                        Name
+                                    </th>
+                                    <th class="hidden sm:table-cell px-2 sm:px-6 py-3 text-start font-semibold uppercase text-green-700">
+                                        Email
+                                    </th>
+                                    <th class="hidden sm:table-cell px-2 sm:px-6 py-3 text-start font-semibold uppercase text-green-700">
+                                        Role
+                                    </th>
+                                    <th class="hidden md:table-cell px-2 sm:px-6 py-3 text-start font-semibold uppercase text-green-700">
+                                        Created
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y divide-gray-600">
+                                @forelse ($this->employees as $employee)
+                                    <tr>
+                                        <td class="px-2 sm:px-6 py-3">
+                                            <span class="block font-semibold text-neutral-200">
+                                                EMPL00{{ ($employee->id) }}
+                                            </span>
+                                        </td>
+                                        <td class="px-2 sm:px-6 py-3">
+                                            <span class="block font-semibold text-neutral-200">
+                                                {{ ($employee->name) }}
+                                            </span>
+                                        </td>
+                                        <td class="hidden sm:table-cell px-2 sm:px-6 py-3">
+                                            <span class="block text-neutral-200">
+                                                {{ $employee->email }}
+                                            </span>
+                                        </td>
+                                        <td class="hidden sm:table-cell px-6 py-3">
+                                            <span class="block text-sm text-neutral-200">
+                                                {{ \Illuminate\Support\Str::ucfirst($employee->roles->pluck('name')->join(', ') ?: 'No role') }}
+                                            </span>
+                                        </td>
+                                        <td class="hidden md:table-cell px-2 sm:px-6 py-3">
+                                            <span class="text-neutral-200">
+                                                {{ $employee->created_at->diffForHumans() }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="5" class="px-2 sm:px-6 py-4 text-center text-neutral-200">
+                                            No employees found.
+                                        </td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                        <!-- End Table -->
+
+                        <!-- Footer -->
+                        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-600">
+                            <div>
+                                <p class="text-sm text-neutral-200">
+                                    <span class="font-semibold text-neutral-200">
+                                        {{ $this->employees->total() }}
+                                    </span>
+                                    results
+                                </p>  
+                            </div>
+                            <div>
+                                <div class="inline-flex gap-x-2">
+                                    
+                                    {{-- Prev Button --}}
+                                    @if($this->employees->onFirstPage()) 
+                                        <button disabled
+                                            class="px-4 py-2 inline-flex items-center justify-center gap-x-1 text-sm font-medium rounded-md border bg-gray-700 dark:bg-black text-gray-400 cursor-not-allowed">
+                                            <svg class="w-4 h-4 flex-shrink-0 align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M12 15l-6-6 6-6" />
+                                            </svg>
+                                            Prev
+                                        </button>
+                                    @else
+                                        <button wire:click="previousPage"
+                                            class="px-4 py-2 inline-flex items-center justify-center gap-x-1 text-sm font-medium rounded-md border bg-gray-700 hover:shadow-md transition-all duration-200 dark:bg-black dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700">
+                                            <svg class="w-4 h-4 flex-shrink-0 align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M12 15l-6-6 6-6" />
+                                            </svg>
+                                            Prev
+                                        </button>
+                                    @endif
+
+                                    {{-- Next Button --}}
+                                    @if($this->employees->hasMorePages())
+                                        <button wire:click="nextPage"
+                                            class="px-4 py-2 inline-flex items-center justify-center gap-x-0 text-sm font-medium rounded-md border bg-gray-700 hover:shadow-md transition-all duration-200 dark:bg-black dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-700">
+                                            Next
+                                            <svg class="w-4 h-4 flex-shrink-0 align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M9 3l6 6-6 6" />
+                                            </svg>
+                                        </button>
+                                    @else
+                                        <button disabled
+                                            class="px-4 py-2 inline-flex items-center justify-center gap-x-0 text-sm font-medium rounded-md border bg-gray-700 dark:bg-black text-gray-400 cursor-not-allowed">
+                                            Next
+                                            <svg class="w-4 h-4 flex-shrink-0 align-middle" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M9 3l6 6-6 6" />
+                                            </svg>
+                                        </button>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Footer -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Card -->
+    </div>
+    <!-- End Table Section -->
 </div>

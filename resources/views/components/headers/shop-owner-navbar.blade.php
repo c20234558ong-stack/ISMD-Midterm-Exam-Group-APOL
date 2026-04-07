@@ -65,6 +65,7 @@
                     <ul class="flex flex-col gap-y-1">
                         <li>
                             <a id="no-border" class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-neutral-200 rounded-lg focus:bg-gray-200 dark:focus:bg-neutral-800 dark:text-neutral-200"
+                                wire:current="bg-green-700"
                                 href="/shop-owner/dashboard">
                                 Dashboard
                             </a>
@@ -83,6 +84,7 @@
                     <ul class="flex flex-col gap-y-1">
                         <li>
                             <a id="no-border" class="w-full flex items-center gap-x-2 py-2 px-2.5 text-sm text-neutral-200 rounded-lg hover:bg-gray-200 focus:outline-hidden"
+                                wire:current="bg-green-700"
                                 href="/shop-owner/employee">
                                 View Employees
                             </a>

@@ -20,7 +20,7 @@ new #[Layout('layouts.app-admin')] class extends Component
     protected function rules()
     {
         return [
-            'name' => 'required|string|min:3|max:255',
+            'name' => 'required|string|min:3|max:255|unique:users,name,' . $this->user->id,
             'email' => [
                 'required',
                 'email:rfc,dns',
@@ -43,6 +43,11 @@ new #[Layout('layouts.app-admin')] class extends Component
     public function messages()
     {
         return [
+            'name.required' => 'The name is required.',
+            'name.string' => 'The name must be a string.',
+            'name.min' => 'The name must be at least 3 characters.',
+            'name.max' => 'The name may not be greater than 255 characters.',
+            'name.unique' => 'The name is already taken.',
             'password.required' => 'The password is required.',
             'password.confirmed' => 'Confirmation password does not match the password.',
             'email.unique' => 'The email address is already registered.',

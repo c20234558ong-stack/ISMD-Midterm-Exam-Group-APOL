@@ -3,10 +3,9 @@
     class="fixed top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-48 lg:z-61 w-full bg-gray-700 text-sm py-2.5 dark:bg-black">
     <nav class="px-4 sm:px-5.5 flex basis-full items-center w-full mx-auto">
         <div class="w-full flex items-center gap-x-1.5">
-            <h2 class="font-semibold text-green-700">APOL's Computer Shop Employee</h2>
+            <h2 class="font-semibold text-green-700">APOL's Computer Shop <br>EMPLOYEE</h2>
             <ul class="flex flex-row items-center gap-x-3 ms-auto">
                 
-
                 <li
                     class="inline-flex items-center gap-1.5 relative text-gray-500 pe-3 last:pe-0 last:after:hidden after:absolute after:top-1/2 after:end-0 after:inline-block after:w-px after:h-3.5 after:bg-gray-300 after:rounded-full after:-translate-y-1/2 after:rotate-12 dark:text-neutral-200 dark:after:bg-neutral-700">    
                     <div class="h-8">
@@ -26,10 +25,10 @@
                                 role="menu" aria-orientation="vertical" aria-labelledby="hs-dnad">
                                 <div class="py-2 px-3.5">
                                     <span class="font-medium text-gray-800 dark:text-neutral-300">
-                                        {{-- {{ Auth::user()->name }} --}}
+                                        {{ Auth::user()->name }}
                                     </span>
                                     <p class="text-sm text-gray-500 dark:text-neutral-500">
-                                        {{-- {{ Auth::user()->email }} --}}
+                                        {{ Auth::user()->email }}
                                     </p>
                                 </div>
                                 <div class="px-4 py-2 border-t border-gray-200 dark:border-neutral-800">

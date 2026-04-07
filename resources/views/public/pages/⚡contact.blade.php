@@ -29,21 +29,21 @@ new class extends Component
           <div>
             <label for="name" class="block text-sm font-medium ">Name</label>
             <input type="text" id="name" name="name"
-              class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-4 py-2  placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-green-700 focus:ring-green-700 sm:text-sm"
+              class="mt-1 block w-full rounded-lg border border-green-700  bg-gray-700 px-4 py-2  placeholder:text-neutral-200 focus:border-green-700 focus:ring-green-700 sm:text-sm"
               placeholder="Your name">
           </div>
 
           <div>
             <label for="email" class="block text-sm font-medium ">Email</label>
             <input type="email" id="email" name="email"
-              class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-4 py-2  placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-green-700 focus:ring-green-700 sm:text-sm"
+              class="mt-1 block w-full rounded-lg border border-green-700 bg-gray-700 px-4 py-2  placeholder:text-neutral-200 focus:border-green-700 focus:ring-green-700 sm:text-sm"
               placeholder="you@example.com">
           </div>
 
           <div>
             <label for="message" class="block text-sm font-medium">Message</label>
             <textarea id="message" name="message" rows="4"
-              class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-4 py-2  placeholder:text-gray-500 dark:placeholder:text-neutral-400 focus:border-green-700 focus:ring-green-700 sm:text-sm"
+              class="mt-1 block w-full rounded-lg border border-green-700 bg-gray-700 px-4 py-2  placeholder:text-neutral-200 focus:border-green-700 focus:ring-green-700 sm:text-sm"
               placeholder="Write your message here..."></textarea>
           </div>
 

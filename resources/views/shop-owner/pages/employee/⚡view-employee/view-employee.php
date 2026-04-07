@@ -11,6 +11,6 @@ new #[Layout('layouts.app-shop-owner')] class extends Component
     public function employees()
     {
         // Fetch all users with the 'employee' role using Spatie Permission
-        return User::role('employee')->with('roles')->get();
+        return User::role('employee')->with('roles')->paginate(5);
     }
 };

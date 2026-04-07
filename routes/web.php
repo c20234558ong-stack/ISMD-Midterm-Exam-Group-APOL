@@ -10,7 +10,7 @@ Route::livewire('/login', 'auth::login')->name('login');
 Route::livewire('/register', 'auth::register')->name('register');
 Route::livewire('/logout', 'auth::logout')->name('logout');
 
-Route::prefix('admin')->group(function () {
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
 
     Route::livewire('/dashboard', 'admin::pages.dashboard')->name('admin.dashboard');
 
@@ -28,15 +28,14 @@ Route::prefix('admin')->group(function () {
 
 });
 
-Route::prefix('shop-owner')->group(function () {
+Route::middleware(['auth', 'role:shop owner'])->prefix('shop-owner')->group(function () {
 
     Route::livewire('/dashboard', 'shop-owner::pages.dashboard')->name('shop-owner.dashboard');
 
     //employee
     Route::livewire('/employee', 'shop-owner::pages.employee.view-employee')->name('shop-owner.employee.view');
     Route::livewire('/employee/create', 'shop-owner::pages.employee.create-employee')->name('shop-owner.employee.create');
-    Route::livewire('/employee/edit/{employee}', 'shop-owner::pages.employee.edit-employee')->name('shop-owner.employee.edit');
-
+    
 });
 
 Route::middleware(['auth', 'role:employee'])->prefix('employee')->group(function () {
