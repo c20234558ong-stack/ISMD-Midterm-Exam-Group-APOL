@@ -17,13 +17,14 @@
                                 <p class="text-sm text-neutral-200">
                                     Manage role and permissions
                                 </p>
+                                @can('deleteAny', Spatie\Permission\Models\Role::class)
                                 <!-- Only shows if the checkbox in thead or td is clicked -->
                                 @if(!empty($selectedRoles))
                                     <div class="py-2">
                                         <button 
                                             x-data 
                                             @click="
-                                                if (confirm('Are you sure you want to delete ' + {{ count($selectedRoles) }} + ' post(s)?')) {
+                                                if (confirm('Are you sure you want to delete ' + {{ count($selectedRoles) }} + ' role(s)?')) {
                                                     $wire.deleteSelected()
                                                 }
                                             "
@@ -33,6 +34,7 @@
                                         </button>
                                     </div>
                                 @endif
+                                @endcan
                             </div>
 
                             <div>
@@ -42,6 +44,7 @@
                                         View all
                                     </a>
 
+                                    @can('create', Spatie\Permission\Models\Role::class)
                                     <a id="no-border" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                                         href="{{ route('admin.role.create') }}">
                                         <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -52,6 +55,7 @@
                                         </svg>
                                         Add Role
                                     </a>
+                                    @endcan
                                 </div>
                             </div>
                         </div>
@@ -113,10 +117,12 @@
                                             </span>
                                         </td>
                                         <td class="px-2 sm:px-6 py-1.5 text-start">
+                                            @can('update', $role)
                                             <a href="{{ route('admin.role.edit', $role->id) }}"
                                             class="text-neutral-200 hover:underline">
                                                 Edit
                                             </a>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @empty

@@ -12,7 +12,7 @@ class RolePolicy
         return $user->hasRole('admin');
     }
 
-    public function view(User $user, Role $role): bool
+    public function view(User $user): bool
     {
         return $user->hasRole('admin');
     }
@@ -22,22 +22,22 @@ class RolePolicy
         return $user->hasRole('admin');
     }
 
-    public function update(User $user, Role $role): bool
+    public function update(User $user): bool
     {
         return $user->hasRole('admin');
     }
 
-    public function delete(User $user, Role $role): bool
+    public function delete(User $user): bool
     {
         return $user->hasRole('admin');
     }
 
-    public function deleteAny(User $user, Role $role): bool
+    public function deleteAny(User $user): bool
     {
         return $user->hasRole('admin');
     }
 
-    public function restore(User $user, Role $role): bool
+    public function restore(User $user): bool
     {
         return false;
     }
